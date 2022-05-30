@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ruuvicollector_unraid</Name>
+  <Repository>abuhamsa/ruuvicollector_unraid:latest</Repository>
+  <Registry>https://hub.docker.com/r/abuhamsa/ruuvicollector_unraid/</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>true</Privileged>
+  <Support>https://hub.docker.com/r/abuhamsa/ruuvicollector_unraid/</Support>
+  <Project/>
+  <Overview>&#xD;
+&#xD;
+Converted By Community Applications   Always verify this template (and values)  against the support page for the container&#xD;
+&#xD;
+https://hub.docker.com/r/abuhamsa/ruuvicollector_unraid/</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1653935806</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Community Applications Conversion" Target="Community_Applications_Conversion" Default="true" Mode="{3}" Description="" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="ruuvi-names" Target="/app/ruuvi-names.properties" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/ruuvicollector/ruuvi-names.properties</Config>
+</Container>

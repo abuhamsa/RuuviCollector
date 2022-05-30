@@ -6,4 +6,4 @@ ADD . /app
 WORKDIR /app
 RUN mvn clean package
 COPY start.sh /start.sh
-CMD ["/start.sh"]
+ENTRYPOINT ["/start.sh"]
