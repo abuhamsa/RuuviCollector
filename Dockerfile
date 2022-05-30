@@ -5,4 +5,5 @@ RUN apk add bluez-deprecated
 ADD . /app
 WORKDIR /app
 RUN mvn clean package
-CMD ["java", "-jar", "target/ruuvi-collector-0.2.jar"]
+COPY start.sh /start.sh
+CMD ["/start.sh"]
