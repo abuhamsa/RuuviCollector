@@ -1,0 +1,32 @@
+name: custom-tag publish image
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Name your tag
+        default: test
+        required: true  
+jobs:
+  update-dh:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to DockerHub with custom-tag
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: abuhamsa/ruuvicollector_unraid
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tags: ${{ github.event.inputs.tag }}
+  update-gh:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to GitHub with custom-tag
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: abuhamsa/ruuvicollector_unraid
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: ghcr.io
+        tags: ${{ github.event.inputs.tag }}            
