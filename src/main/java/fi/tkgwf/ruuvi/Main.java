@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.influxdb.InfluxDBIOException;
 
 public class Main {
 
@@ -107,6 +108,11 @@ public class Main {
                             latestMAC = null; // "reset" the mac to null to avoid misleading MAC addresses when an error happens *after* successfully reading a full packet
                             healthy = true;
                         }
+                    }
+                } catch (InfluxDBIOException ex) {
+                    LOG.error("Database connection lost while attempting to save measurements to InfluxDB", ex);
+                    if (Config.exitOnInfluxDBIOException()) {
+                        return false;
                     }
                 } catch (Exception ex) {
                     if (latestMAC != null) {
